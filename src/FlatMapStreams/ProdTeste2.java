@@ -20,7 +20,7 @@ public class ProdTeste2 {
                 List.of(new Produto("feijap", 40) , new Produto("abobora", 10)),
                 List.of(new Produto("macarrao" ,40) , new Produto("macaxeira",20))
         );
-        List<String> collect = prod.stream().map(list -> list.get(1 )).map(s -> s.getNome()).collect(Collectors.toList());
+        List<String> collect = prod.stream().flatMap(list -> list.stream().map(s -> s.getNome())).collect(Collectors.toList());
         System.out.println(collect);
     }
 
